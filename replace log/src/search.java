@@ -4,6 +4,7 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
+import java.io.*;
 
 
 public class search {
@@ -21,19 +22,28 @@ public class search {
 		e.printStackTrace();
 	}
   //  String fullText = new String(Files.readAllBytes(path), charset);
-    String search = "wowe";
-    String replace = "wow, WOW!";
+ //  String search = "wowe";
+ //  String replace = "wow, WOW!";
+    
+    String search = "wow, WOW!";
+    String replace = "wowe";
+    
     ByteBuffer input = ByteBuffer.wrap(content.getBytes());
     byte[] toSearch = search.getBytes();
     int index = getIndex(input, toSearch);
     
     byte[] first = new byte[index];
     input.get(first);
-    content = content.replaceAll(search, replace);
+    content = content.replace(search, replace);
   //  byte[] second = replace.getBytes();
+    try {
+		Files.write(path, content.getBytes(charset));
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     
     input.position(input.position()+search.length());
-    
     System.out.println(content);
     // test coment git push 1
     
@@ -59,7 +69,7 @@ public class search {
       }
     }
     input.rewind();
-  //  System.out.println(index);
+  // System.out.println(index);
     return index ;
    
   }
