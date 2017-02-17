@@ -21,9 +21,6 @@ public class search {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-  //  String fullText = new String(Files.readAllBytes(path), charset);
- //  String search = "wowe";
- //  String replace = "wow, WOW!";
     
     String search = "wow, WOW!";
     String replace = "wowe";
