@@ -7,11 +7,13 @@ import java.nio.file.*;
 import java.io.*;
 
 
-public class search {
-  
-  public static void main(String[] args)
-  {
-	  Path path = Paths.get("C:\\Users\\bukvalife\\git\\bukas-replace-log\\text.txt");
+public class replace {
+	public static void main(String[] args) throws IOException {
+
+//	  Path path = Paths.get("C:\\Users\\bukvalife\\git\\bukas-replace-log\\text.txt");
+	//  Path path = Paths.get(SelectFile.spath.toString());
+	//  String path = SelectFile.path.toString();
+		Path path = Paths.get(SelectFile.spath.replace("\\", "\\\\"));
 	  Charset charset = StandardCharsets.UTF_8;
 
 	  String content = null;
@@ -22,17 +24,19 @@ public class search {
 		e.printStackTrace();
 	}
     
-    String search = "wow, WOW!";
-    String replace = "wowe";
+    String search = bukasframe.searchText.getText();
+    String replace = bukasframe.replaceText.getText();
     
-    ByteBuffer input = ByteBuffer.wrap(content.getBytes());
+//	String search = "wowe";
+//	String replace = "wowering";
+	ByteBuffer input = ByteBuffer.wrap(content.getBytes());
     byte[] toSearch = search.getBytes();
     int index = getIndex(input, toSearch);
     
     byte[] first = new byte[index];
     input.get(first);
     content = content.replace(search, replace);
-  //  byte[] second = replace.getBytes();
+    byte[] second = replace.getBytes();
     try {
 		Files.write(path, content.getBytes(charset));
 	} catch (IOException e) {
@@ -42,7 +46,6 @@ public class search {
     
     input.position(input.position()+search.length());
     System.out.println(content);
-    // test coment git push 1
     
   }
   
@@ -66,7 +69,6 @@ public class search {
       }
     }
     input.rewind();
-  // System.out.println(index);
     return index ;
    
   }
