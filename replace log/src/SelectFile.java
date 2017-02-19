@@ -22,6 +22,8 @@ public static void main (){
 //	 if(spath.charAt(spath.length()-1)!=File.separatorChar){
 //	     spath += File.separator;
 //	 }
+	 bukasframe.textPath.setText(spath);
+	 
 	 System.out.println(spath);
 	}
 	

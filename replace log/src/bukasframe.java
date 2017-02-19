@@ -27,6 +27,7 @@ public class bukasframe extends JFrame {
 	static JTextField searchText;
 	static JTextField replaceText;
 	static JButton btnSelectFile;
+	static JTextField textPath;
 
 	/**
 	 * Launch the application.
@@ -101,11 +102,11 @@ public class bukasframe extends JFrame {
 		contentPane.add(btnSnR);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(128, 11, 147, 251);
+		textPane.setBounds(128, 57, 147, 205);
 		contentPane.add(textPane);
 		
 		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setBounds(285, 11, 147, 251);
+		textPane_1.setBounds(285, 57, 147, 205);
 		contentPane.add(textPane_1);
 		
 		btnSelectFile = new JButton("Select File");
@@ -121,6 +122,11 @@ public class bukasframe extends JFrame {
 		
 		btnSelectFile.setBounds(10, 11, 91, 23);
 		contentPane.add(btnSelectFile);
+		
+		textPath = new JTextField();
+		textPath.setBounds(127, 12, 262, 22);
+		contentPane.add(textPath);
+		textPath.setColumns(10);
 	}
 	public JTextField getSearchText() {
 		return searchText;

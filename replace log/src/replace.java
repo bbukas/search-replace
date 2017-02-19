@@ -13,7 +13,8 @@ public class replace {
 //	  Path path = Paths.get("C:\\Users\\bukvalife\\git\\bukas-replace-log\\text.txt");
 	//  Path path = Paths.get(SelectFile.spath.toString());
 	//  String path = SelectFile.path.toString();
-		Path path = Paths.get(SelectFile.spath.replace("\\", "\\\\"));
+	// 	Path path = Paths.get(SelectFile.spath.replace("\\", "\\\\"));
+		Path path = Paths.get(bukasframe.textPath.getText().replace("\\", "\\\\"));
 	  Charset charset = StandardCharsets.UTF_8;
 
 	  String content = null;

@@ -13,9 +13,9 @@ public class search2 {
         Scanner s = null;
 
         try {
-       s = new Scanner(new BufferedReader(new FileReader("C:\\Users\\bukvalife\\git\\bukas-replace-log\\text.txt")));
+    //   s = new Scanner(new BufferedReader(new FileReader("C:\\Users\\bukvalife\\git\\bukas-replace-log\\text.txt")));
         	
-      //  	s = new Scanner(new BufferedReader(new FileReader(SelectFile.spath)));
+        	s = new Scanner(new BufferedReader(new FileReader(bukasframe.textPath.getText().replace("\\", "\\\\"))));
             int i = 0;
             while (s.hasNextLine()) {
             	i++;
