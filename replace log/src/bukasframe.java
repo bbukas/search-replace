@@ -18,6 +18,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.filechooser.*;
 
 import javafx.stage.FileChooser;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
 
 
 
@@ -64,6 +66,7 @@ public class bukasframe extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setFocusCycleRoot(true);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -89,23 +92,38 @@ public class bukasframe extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}  
-				try {
-					replace.main(null);
-
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
+	//			try {
+	//				replace.main(null);
+//
+	//			} catch (IOException e1) {
+	//				// TODO Auto-generated catch block
+	//				e1.printStackTrace();
+	//			} 
+				
+			//	if(replaceText.getText().length() != 0)
+			//	try{
+			//		replace.main(null);
+			//	} catch (IOException e1) {
+			//		e1.printStackTrace();
+			//	}
+				
+			//	regexsearch.displayFind(searchText.getText().toString(), replace.content);
+			//	regexsearch.main(null);
+			//	regexsearch.displayFind();
+			//	stream.main(null);
+				
 			}
 		});
 		btnSnR.setBounds(10, 119, 91, 23);
 		contentPane.add(btnSnR);
 		
 		JTextPane textPane = new JTextPane();
+		textPane.setFocusCycleRoot(false);
 		textPane.setBounds(128, 57, 147, 205);
 		contentPane.add(textPane);
 		
 		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setFocusCycleRoot(false);
 		textPane_1.setBounds(285, 57, 147, 205);
 		contentPane.add(textPane_1);
 		
@@ -127,6 +145,7 @@ public class bukasframe extends JFrame {
 		textPath.setBounds(127, 12, 262, 22);
 		contentPane.add(textPath);
 		textPath.setColumns(10);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{btnSelectFile, searchText, replaceText, btnSnR, textPath, textPane, textPane_1}));
 	}
 	public JTextField getSearchText() {
 		return searchText;
